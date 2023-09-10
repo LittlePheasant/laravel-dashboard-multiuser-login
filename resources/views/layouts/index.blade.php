@@ -59,6 +59,7 @@
               </div>
             </div>
           </div>
+          
           @yield('scripts')
           @yield('contents')
 

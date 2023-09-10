@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
+
+use App\Models\Program;
+use App\Models\Report;
 
 class User extends Authenticatable
 {
@@ -46,4 +50,30 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getUserLists() {
+        return $this->all();
+    }
+
+    public function getuserInfoByID($id){
+
+        // Retrieve registered user information based on the provided $id
+        return $this->find($id);
+    }
+
+    // public function getMyInfo($id) {
+
+    //     // Retrieve logged in user information based on the provided $id
+    //     return $this->find($id);
+    // }
+
+    public function reports()
+    {
+        return $this->hasMany(Report::class);
+    }
+
+    public function program()
+    {
+        return $this->belongsTo(Program::class);
+    }
 }
