@@ -12,6 +12,12 @@ class Program extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id',
+        'program_name',
+        'description',
+    ];
+
     public function reports()
     {
         return $this->hasMany(Report::class);

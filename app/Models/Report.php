@@ -13,6 +13,8 @@ class Report extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
+        'program_id',
         'dates',
         'title',
         'type_beneficiary',
@@ -30,6 +32,7 @@ class Report extends Model
         'serviceOpt',
         'partners',
         'faculty_staff_involve',
+        'role',
         'cost_fund',
         'filename',
         
@@ -37,7 +40,7 @@ class Report extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function getAccReportList() {

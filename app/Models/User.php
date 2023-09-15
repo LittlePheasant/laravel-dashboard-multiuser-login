@@ -61,12 +61,6 @@ class User extends Authenticatable
         return $this->find($id);
     }
 
-    // public function getMyInfo($id) {
-
-    //     // Retrieve logged in user information based on the provided $id
-    //     return $this->find($id);
-    // }
-
     public function reports()
     {
         return $this->hasMany(Report::class);
@@ -74,6 +68,6 @@ class User extends Authenticatable
 
     public function program()
     {
-        return $this->belongsTo(Program::class);
+        return $this->belongsTo(Program::class, 'id');
     }
 }

@@ -11,6 +11,10 @@ class Particular extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'particular_description',
+    ];
+
     public function actualreports()
     {
         return $this->hasMany(SummaryReport::class);

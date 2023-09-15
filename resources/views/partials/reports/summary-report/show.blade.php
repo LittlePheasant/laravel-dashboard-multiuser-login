@@ -56,32 +56,37 @@
                 </thead>
                 <tbody>
 
+                    @php  $index = 0; @endphp
                     @foreach ($reports as $particular_id => $particularData)
 
-                        @php $firstParticular = true; @endphp
+                        @php $firstParticular = true;@endphp
                         @php $sortedQuarterData = collect($particularData)->sortBy('quarter_id'); @endphp
-
+                        @php $index++; @endphp
                         @foreach ($sortedQuarterData as $quarter_id => $quarterData)
+                            
                             <tr>
                                 @if ($firstParticular)
-                                    <td rowspan="{{ count($particularData) }}">{{ $particular_id }}</td>
+                                    
+                                    <td rowspan="{{ count($particularData) }}"> {{$index . '.' . ' ' .$particular_id }}</td>
                                     @php $firstParticular = false; @endphp
                                 @endif
                                 <td>{{ $quarter_id }}</td>
 
-                                <td>{{ $quarterData[9]['count'] ?? '' }}</td>
-                                <td>{{ $quarterData[10]['count'] ?? ''}}</td>
-                                <td>{{ $quarterData[11]['count'] ?? ''}}</td>
-                                <td>{{ $quarterData[12]['count'] ?? ''}}</td>
-                                <td>{{ $quarterData[13]['count'] ?? ''}}</td>
-                                <td>{{ $quarterData[14]['count'] ?? ''}}</td>
-                                <td>{{ $quarterData[15]['count'] ?? ''}}</td>
-                                <td>{{ $quarterData[16]['count'] ?? ''}}</td>
-                                <td>{{ $quarterData[17]['count'] ?? ''}}</td>
-                                <td>{{ $quarterData[18]['count'] ?? ''}}</td>
-                                <td>{{ $quarterData[19]['count'] ?? ''}}</td>
-                                <td>{{ $quarterData[20]['count'] ?? ''}}</td>
+                                <td>{{ $quarterData['CAAD']['count'] ?? '' }}</td>
+                                <td>{{ $quarterData['CAS']['count'] ?? ''}}</td>
+                                <td>{{ $quarterData['COBE']['count'] ?? ''}}</td>
+                                <td>{{ $quarterData['COE']['count'] ?? ''}}</td>
+                                <td>{{ $quarterData['COED']['count'] ?? ''}}</td>
+                                <td>{{ $quarterData['COT']['count'] ?? ''}}</td>
+                                <td>{{ $quarterData['GS']['count'] ?? ''}}</td>
+                                <td>{{ $quarterData['BURAUEN']['count'] ?? ''}}</td>
+                                <td>{{ $quarterData['CARIGARA']['count'] ?? ''}}</td>
+                                <td>{{ $quarterData['ORMOC']['count'] ?? ''}}</td>
+                                <td>{{ $quarterData['TANAUAN']['count'] ?? ''}}</td>
+                                <td>{{ $quarterData['DULAG']['count'] ?? ''}}</td>
+    
                             </tr>
+                            
                         @endforeach
                     @endforeach
                     

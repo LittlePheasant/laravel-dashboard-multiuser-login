@@ -11,6 +11,10 @@ class Quarter extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'duration_period'
+    ];
+
     public function summaryreports()
     {
         return $this->hasMany(SummaryReport::class);
